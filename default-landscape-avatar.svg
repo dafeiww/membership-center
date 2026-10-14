@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="山湖风景默认头像">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#89bfe6"/>
+      <stop offset=".65" stop-color="#d4e9f3"/>
+      <stop offset="1" stop-color="#f9f0db"/>
+    </linearGradient>
+    <linearGradient id="water" x2="0" y2="1">
+      <stop stop-color="#83bfd6"/>
+      <stop offset="1" stop-color="#367b9e"/>
+    </linearGradient>
+    <clipPath id="circle"><circle cx="80" cy="80" r="80"/></clipPath>
+  </defs>
+  <g clip-path="url(#circle)">
+    <path fill="url(#sky)" d="M0 0h160v160H0z"/>
+    <circle cx="113" cy="44" r="17" fill="#fff5d9" opacity=".96"/>
+    <path d="M0 103 42 49l28 34 25-41 65 65v53H0Z" fill="#638eaa"/>
+    <path d="m42 49 13 16-11-5-9 7Zm53-7 15 15-13-4-9 9Z" fill="#e9f2f5" opacity=".93"/>
+    <path d="M0 112 28 79l32 29 26-25 39 30 35-22v69H0Z" fill="#345f7d"/>
+    <path d="M0 110c32-4 55 8 83 6s48-13 77-7v51H0Z" fill="url(#water)"/>
+    <path d="M0 122c28-5 54 4 82 3s47-8 78-3M15 139c31-5 57 3 86 1m15-7c15-2 31-2 44 0" fill="none" stroke="#cbe9ed" stroke-width="2" opacity=".55"/>
+    <path d="M0 144c17-14 28-19 42-17l-16 33H0Zm160-5c-14-12-25-13-39-11l13 32h26Z" fill="#27586c"/>
+  </g>
+</svg>
