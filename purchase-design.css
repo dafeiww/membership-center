@@ -1,0 +1,164 @@
+/* Membership and storage purchase flow · visual refinement. */
+#page-membership,
+#page-space{--flow-ink:#173553;--flow-muted:#688097;--flow-blue:#1479da;--flow-navy:#173b64;--flow-line:#dce8f3;--flow-amber:#cf8c31}
+#page-membership .page-head,
+#page-space .page-head{margin-bottom:22px}
+#page-membership .page-head h1,
+#page-space .page-head h1{font-size:30px;letter-spacing:-.035em}
+#page-membership .page-head p,
+#page-space .page-head p{font-size:14px}
+
+/* The member header keeps account status separate from the offer below. */
+#page-membership .membership-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px;min-height:174px;padding:27px 30px;border:0;border-radius:18px;background:radial-gradient(circle at 78% -55%,#5b9cd970 0,transparent 45%),linear-gradient(114deg,#153553 0%,#1d548c 67%,#1f64a2 100%);box-shadow:0 16px 32px #1a528c1c;overflow:hidden}
+#page-membership .membership-head:after{content:none}
+#page-membership .membership-head .hero-kicker{display:inline-flex;align-items:center;padding:4px 9px;margin-bottom:10px;border:1px solid #cbe9ff57;border-radius:99px;background:#cbe9ff17;color:#d6edff;font-size:12px;font-weight:700;letter-spacing:.07em}
+#page-membership .membership-head h2{font-size:25px;line-height:1.25;color:#fff;letter-spacing:-.03em}
+#page-membership .membership-head p{max-width:575px;margin:10px 0 0;color:#d7e8f7;font-size:14px;line-height:1.7}
+#page-membership .membership-hero-facts{display:grid;grid-template-columns:repeat(2,minmax(128px,1fr));gap:10px;width:min(360px,36vw)}
+#page-membership .membership-hero-facts>div{display:flex;flex-direction:column;min-height:104px;padding:15px 16px;border:1px solid #d4ebff33;border-radius:13px;background:#fff1;backdrop-filter:blur(5px)}
+#page-membership .membership-hero-facts span{font-size:12px;color:#c7dff2}
+#page-membership .membership-hero-facts strong{font-size:21px;line-height:1.2;margin:8px 0 3px;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+#page-membership .membership-hero-facts small{font-size:12px;color:#b8d3e8;line-height:1.35}
+
+#page-membership .membership-purchase,
+#page-space .space-purchase{border-color:#dfe9f3;box-shadow:0 10px 30px #285a8c0c}
+#page-membership .membership-purchase{padding:30px}
+#page-membership .purchase-section-title,
+#page-space .purchase-section-title{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:21px}
+#page-membership .purchase-section-title h2,
+#page-space .purchase-section-title h2{margin:4px 0 0;font-size:21px;color:var(--flow-ink);letter-spacing:-.03em}
+#page-membership .purchase-section-title .card-sub,
+#page-space .purchase-section-title .card-sub{color:var(--flow-muted);margin-top:6px}
+#page-membership .section-kicker,
+#page-space .section-kicker{color:var(--flow-blue);font-size:12px;font-weight:800;letter-spacing:.12em}
+#page-membership .demo-pill,
+#page-space .demo-pill{flex:none;border:1px solid #dce9f6;border-radius:99px;background:#f6faff;color:#6b89a5;padding:5px 10px;font-size:12px;font-weight:700}
+#page-membership .purchase-mode{width:100%;max-width:390px;margin:0 0 25px;padding:5px;border:1px solid #dce9f5;border-radius:12px;background:#f1f6fb}
+#page-membership .purchase-mode button{flex:1;min-width:0;padding:11px 16px;font-size:14px;border-radius:9px}
+#page-membership .purchase-mode button.active{background:#fff;color:#126fc9;box-shadow:0 2px 9px #24557d19}
+#page-membership .purchase-mode button:not(.active):hover{background:#e5eff9}
+#page-membership .plan-section-heading,
+#page-space .plan-section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+#page-membership .plan-section-heading>div,
+#page-space .plan-section-heading>div,
+#page-membership .checkout-heading>div,
+#page-space .checkout-heading>div,
+#page-space .space-result-heading{display:flex;align-items:center;gap:10px}
+#page-membership .flow-step,
+#page-space .flow-step{display:grid;place-items:center;flex:none;width:25px;height:25px;border-radius:8px;background:#e8f3fe;color:#1c76cb;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}
+#page-membership .plan-section-heading strong,
+#page-space .plan-section-heading strong,
+#page-membership .checkout-heading strong,
+#page-space .checkout-heading strong,
+#page-space .space-result-heading strong{font-size:15px;color:var(--flow-ink)}
+#page-membership .plan-section-heading p,
+#page-space .plan-section-heading p,
+#page-membership .checkout-heading p,
+#page-space .checkout-heading p{margin:0;color:var(--flow-muted);font-size:13px;line-height:1.5}
+
+/* Equal-size cards make the tier differences scannable without reading four paragraphs. */
+#page-membership .plan-grid{gap:12px}
+#page-membership .plan-grid .plan-option{position:relative;min-height:260px;padding:19px 17px 18px;border:1.5px solid #dce7f1;border-radius:15px;background:#fff;box-shadow:none;transition:border-color .16s,box-shadow .16s,transform .16s}
+#page-membership .plan-grid .plan-option:hover{border-color:#8fc5f5;transform:translateY(-2px);box-shadow:0 10px 20px #317cc013}
+#page-membership .plan-grid .plan-option.active{border:2px solid #258be9;padding:18px 16px 17px;background:linear-gradient(180deg,#f3f9ff,#fff 67%);box-shadow:0 8px 20px #1988ed14}
+#page-membership .plan-grid .plan-option:not(.featured-plan)::after{content:"";position:absolute;top:18px;right:17px;width:17px;height:17px;border:1.5px solid #bdd1e4;border-radius:50%;background:#fff}
+#page-membership .plan-grid .plan-option.active:not(.featured-plan)::after{border:5px solid #2389e7}
+#page-membership .plan-grid .plan-option>strong{padding-right:30px;font-size:16px;color:#24415e}
+#page-membership .plan-grid .plan-option>span:not(.plan-perks){margin:14px 0 3px;color:#1b639f;font-size:30px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+#page-membership .plan-grid .plan-option>small{font-size:12px;color:#8197ab}
+#page-membership .plan-grid .plan-perks{gap:8px;padding-top:14px;margin-top:auto;border-color:#e6edf4}
+#page-membership .plan-perks .plan-perk,
+#page-membership .sub-perks .plan-perk{font-size:12px;line-height:1.45;color:#526c84}
+#page-membership .plan-perks .plan-perk::before,
+#page-membership .sub-perks .plan-perk::before{width:15px;height:15px;font-size:10px;margin-top:1px}
+#page-membership .plan-grid .featured-plan{background:#fffcf6;border-color:#f0dfc7}
+#page-membership .plan-grid .featured-plan.active{border-color:#d69b49;background:linear-gradient(180deg,#fff8eb,#fff 66%);box-shadow:0 8px 20px #bf8a351a}
+#page-membership .featured-plan .plan-badge{position:absolute;top:13px;right:12px;padding:4px 8px;border-radius:6px;background:#fff0d4;color:#a86b1e;font-style:normal;font-size:11px;font-weight:800}
+#page-membership .featured-plan>span:not(.plan-perks){color:#b87926}
+#page-membership .featured-plan .plan-perks .plan-perk::before{background:#fff1d6;color:#ab711f}
+
+/* Renewal cards use the same visual language rather than a separate oversized template. */
+#page-membership .subscription-options{gap:14px;padding-top:0}
+#page-membership .subscription-options .subscription-option,
+#page-membership .subscription-options .subscription-option.active{align-items:flex-start;min-height:255px;padding:19px 21px;border:1.5px solid #dce7f1;border-radius:15px;text-align:left;background:#fff;box-shadow:none;transition:border-color .16s,box-shadow .16s,transform .16s}
+#page-membership .subscription-options .subscription-option:hover{border-color:#8fc5f5;transform:translateY(-2px)}
+#page-membership .subscription-options .subscription-option.active{border:2px solid #258be9;padding:18px 20px;background:linear-gradient(180deg,#f3f9ff,#fff 65%);box-shadow:0 8px 20px #1988ed14}
+#page-membership .subscription-options .sub-ribbon,
+#page-membership .subscription-options .subscription-option.active .sub-ribbon{position:static;align-self:flex-start;max-width:100%;margin:0 0 11px;padding:4px 9px;border-radius:99px;background:#e7f3ff;color:#156fbd;font-size:11px;line-height:1.3;white-space:normal}
+#page-membership .subscription-options .subscription-option.featured .sub-ribbon{background:#fff0d4;color:#a86b1e}
+#page-membership .subscription-options .subscription-option>strong{font-size:17px;margin:0 0 6px}
+#page-membership .subscription-options .sub-price{font-size:33px;color:#1b639f;letter-spacing:-.04em;line-height:1.15}
+#page-membership .subscription-options .sub-price small{font-size:16px}
+#page-membership .subscription-options .sub-period{margin:4px 0 0;font-size:12px}
+#page-membership .subscription-options .sub-perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:auto;padding-top:14px}
+
+/* One quiet, clearly bounded confirmation area for both purchase modes. */
+#page-membership .checkout-panel,
+#page-space .checkout-panel{margin-top:22px;padding:19px 21px 18px;border:1px solid #d9e8f6;border-radius:15px;background:#f7fbff}
+#page-membership .checkout-heading,
+#page-space .checkout-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid #e1ecf6}
+#page-membership .checkout-controls,
+#page-space .checkout-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;padding:15px 0}
+#page-membership .checkout-controls .auto-row,
+#page-space .checkout-controls .auto-row{margin:0;font-size:13px;color:#47627d}
+#page-membership .checkout-controls .pay-methods,
+#page-space .checkout-controls .pay-methods{margin:0;gap:6px}
+#page-membership .checkout-controls .pay-label,
+#page-space .checkout-controls .pay-label{margin-right:2px;color:#7890a6;font-size:12px}
+#page-membership .checkout-controls .pay-chip,
+#page-space .checkout-controls .pay-chip{padding:6px 10px;font-size:12px}
+#page-membership .checkout-panel .member-footer,
+#page-space .checkout-panel .member-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0;padding:14px 0 0;border-top:1px solid #e1ecf6}
+#page-membership .checkout-panel .pay-total,
+#page-space .checkout-panel .pay-total{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+#page-membership .checkout-panel .pay-total>span,
+#page-space .checkout-panel .pay-total>span{color:#5a738b;font-size:13px}
+#page-membership .checkout-panel .pay-total strong,
+#page-space .checkout-panel .pay-total strong{color:#126fbd;font-size:26px;line-height:1.2;font-variant-numeric:tabular-nums}
+#page-membership .checkout-panel .pay-total small,
+#page-space .checkout-panel .pay-total small{color:#8498aa;font-size:12px}
+#page-membership .checkout-panel .primary,
+#page-space .checkout-panel .primary{min-width:142px;min-height:43px;border-radius:9px;font-size:14px;font-weight:750;box-shadow:0 5px 13px #1988ed27}
+#page-membership .checkout-panel .order-note{margin:12px 0 0;color:#92a3b2;font-size:12px;line-height:1.5}
+#page-membership .checkout-panel .subscription-agree{margin:0;padding:4px 0 12px;color:#637b91;font-size:12px}
+#page-membership .checkout-panel .subscription-error{margin:0 0 8px}
+
+/* A capacity equation previews the actual result before the storage purchase. */
+#page-space .space-layout{grid-template-columns:minmax(0,.87fr) minmax(0,1.13fr);gap:18px}
+#page-space .space-overview{align-self:start;position:sticky;top:78px}
+#page-space .space-purchase{padding:26px}
+#page-space .space-purchase .section-title{margin-bottom:22px}
+#page-space .space-packs{gap:9px}
+#page-space .space-packs .plan-option{min-height:128px;padding:16px 13px 14px;border:1.5px solid #dce7f1;border-radius:13px;background:#fff;box-shadow:none}
+#page-space .space-packs .plan-option.active{border:2px solid #258be9;padding:15px 12px 13px;background:linear-gradient(180deg,#f2f8ff,#fff);box-shadow:0 6px 18px #1988ed14}
+#page-space .space-packs .plan-option>strong{font-size:25px;color:#1e4e77;white-space:nowrap}
+#page-space .space-packs .plan-option>strong small{font-size:12px}
+#page-space .space-packs .plan-option>span{margin:11px 0 2px;font-size:19px;font-weight:750;color:#1476cb}
+#page-space .space-packs .plan-option>small{font-size:11px;color:#869aab}
+#page-space .space-packs .plan-option>em{top:8px;right:8px;padding:3px 6px;border-radius:5px;background:#e6f3ff;font-size:10px}
+#page-space .space-result{margin-top:20px;padding:17px 18px;border:1px solid #dce9f5;border-radius:14px;background:linear-gradient(135deg,#f6faff,#eef6ff)}
+#page-space .space-result-heading{margin-bottom:16px}
+#page-space .space-result-equation{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1.15fr);align-items:center;gap:8px}
+#page-space .space-result-equation>div{min-width:0}
+#page-space .space-result-equation span:not(.equation-mark){display:block;font-size:11px;color:#7890a6;white-space:nowrap}
+#page-space .space-result-equation strong{display:block;margin-top:6px;font-size:18px;color:#315a7d;font-variant-numeric:tabular-nums;white-space:nowrap}
+#page-space .space-result-equation .equation-mark{font-size:18px;color:#7eaccf}
+#page-space .space-result-equation .space-result-total{padding:9px 10px;border-radius:10px;background:#dfefff}
+#page-space .space-result-equation .space-result-total strong{color:#126fbd;font-size:20px}
+#page-space .space-result>p{margin:13px 0 0;padding-top:11px;border-top:1px solid #dce9f5;color:#617c95;font-size:12px;line-height:1.4}
+#page-space .space-result>p strong{color:#206da9;font-variant-numeric:tabular-nums}
+#page-space .space-checkout{margin-top:17px;padding:18px 18px 16px;border:1px solid #d9e8f6}
+#page-space .space-checkout .auto-row,
+#page-space .space-checkout .pay-methods{margin:0}
+#page-space .space-alternative{margin-top:17px;padding:12px 14px;background:#fffaf2;border-color:#f0e4d0}
+#page-space .space-alt-icon{background:#fff3df;border-color:#f0dfc4;color:#a56d22}
+#page-space .space-alternative strong{color:#725629}
+#page-space .space-alternative p{color:#9c907d;font-size:12px}
+#page-space .space-footer{padding:0 2px;color:#8196a9;font-size:12px}
+
+@media(max-width:1190px){#page-space .space-layout{grid-template-columns:1fr}#page-space .space-overview{position:static}}
+@media(max-width:1030px){#page-membership .membership-head{grid-template-columns:1fr}#page-membership .membership-hero-facts{width:100%;max-width:410px}#page-membership .plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:740px){#page-membership .membership-purchase,#page-space .space-purchase{padding:21px}#page-membership .membership-head{padding:23px}#page-membership .plan-section-heading,#page-space .plan-section-heading{align-items:flex-start;flex-direction:column;gap:5px}#page-membership .checkout-controls,#page-space .checkout-controls{align-items:flex-start;flex-direction:column}#page-membership .checkout-heading,#page-space .checkout-heading{align-items:flex-start;flex-direction:column;gap:5px}#page-membership .checkout-heading p,#page-space .checkout-heading p{padding-left:35px}}
+@media(max-width:580px){#page-membership .plan-grid{grid-template-columns:1fr}#page-membership .plan-grid .plan-option{min-height:0}#page-membership .subscription-options{grid-template-columns:1fr}#page-membership .subscription-options .subscription-option,#page-membership .subscription-options .subscription-option.active{min-height:0}#page-space .space-result-equation{gap:4px}#page-space .space-result-equation strong{font-size:15px}#page-space .space-result-equation .space-result-total strong{font-size:17px}#page-space .space-packs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:480px){#page-membership .membership-hero-facts{grid-template-columns:repeat(2,minmax(0,1fr))}#page-membership .membership-hero-facts strong{font-size:18px}#page-membership .subscription-options .sub-perks{grid-template-columns:1fr 1fr}#page-membership .checkout-panel .member-footer,#page-space .checkout-panel .member-footer{align-items:stretch;flex-direction:column}#page-membership .checkout-panel .primary,#page-space .checkout-panel .primary{width:100%}#page-space .space-packs{grid-template-columns:1fr}#page-space .space-packs .plan-option{min-height:88px}#page-space .space-result-equation{grid-template-columns:1fr auto 1fr;row-gap:8px}#page-space .space-result-equation .equation-mark:nth-of-type(2){display:none}#page-space .space-result-equation .space-result-total{grid-column:1/-1}#page-space .space-result-equation .space-result-total strong{font-size:20px}}
+@media(prefers-reduced-motion:reduce){#page-membership .plan-grid .plan-option,#page-membership .subscription-options .subscription-option{transition:none}}
