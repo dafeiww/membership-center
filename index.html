@@ -232,6 +232,7 @@
     @media(max-width:580px){.invoice-favorite-row{align-items:flex-start;flex-direction:column}.invoice-favorite-top{align-items:flex-start}.invoice-favorite-editor .modal-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="purchase-design.css" />
+<link rel="stylesheet" href="cloud-design.css" />
 </head>
 <body>
   <svg aria-hidden="true" width="0" height="0" style="position:absolute;overflow:hidden">
@@ -306,12 +307,28 @@
         </section>
 
         <section class="page" id="page-cloud">
-          <div class="page-head"><div><h1>我的云贝</h1><p>查看当前云贝余额，可用云贝兑换存储空间。</p></div></div>
-          <div class="workspace"><div class="stack">
-            <div class="card cloud-banner"><div class="cloud-balance"><div><div class="coin">贝</div><div class="amount" id="shell-balance">2,860</div><p>当前可用云贝 · 演示数据</p></div><div class="cloud-action"><button class="primary" id="checkin-button">签到获取云贝</button><small>签到奖励规则待确认</small></div></div></div>
-            <div class="card"><div class="section-title"><div><h2>云贝兑换</h2><p class="card-sub">云贝可用于兑换存储空间；兑换成功后空间上限立即增加。</p></div></div><div class="plan-card exchange-card"><div class="exchange-main"><div class="exchange-icon">◈</div><div><h3>500 MB 存储空间</h3><p>示例比例：1000 云贝 = 500 MB；其他档位待确认</p></div></div><div class="exchange-side"><div class="exchange-cost">1000 云贝</div><button type="button" class="primary" id="exchange-button" data-modal="exchange">立即兑换</button></div></div><p class="order-note">可多次兑换，直到云贝不足；签到与兑换记录都会显示在下方订单列表。</p></div>
-            <div class="card"><div class="section-title"><div><h2>订单列表</h2><p class="card-sub">签到获取与云贝兑换的变动记录；状态分为“已获取”和“已消耗”。</p></div></div><div class="order-filters" id="record-filters"><button type="button" class="active" data-record-filter="全部">全部</button><button type="button" data-record-filter="已获取">已获取</button><button type="button" data-record-filter="已消耗">已消耗</button></div><div class="table-head"><span>记录类型</span><span>发生时间</span><span>云贝变动</span><span>状态</span></div><div class="empty" id="order-empty"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="10" y="12" width="40" height="38" rx="8" fill="#eef5fc"/><path d="M19 24h22M19 31h15M19 38h18" stroke="#8baed0" stroke-width="2" stroke-linecap="round"/></svg><h3 id="order-empty-title">暂无云贝记录</h3><p id="order-empty-desc">完成签到或云贝兑换后，将在这里看到记录。</p></div><div id="order-records"></div></div>
-            <div class="small-callout"><span>✦</span><div><strong>云贝可以做什么？</strong><br/>可用于兑换存储空间（示例比例 1000 云贝 = 500 MB），也可在开通会员或购买空间扩容时抵扣费用：500 云贝抵 5 元，每单最高抵扣 5 元。是否设置更多档位、兑换上限及其他用途待确认。</div></div>
+          <div class="page-head"><div><h1>我的云贝</h1><p>查看云贝余额、兑换空间，也可在开通会员和扩容时抵扣费用。</p></div></div>
+          <div class="workspace"><div class="stack cloud-stack">
+            <div class="card cloud-banner">
+              <div class="cloud-hero-main">
+                <div class="cloud-balance"><span class="cloud-balance-mark" aria-hidden="true">贝</span><div><span class="cloud-kicker">当前可用云贝</span><div class="amount" id="shell-balance" aria-live="polite">2,860</div><p>账户演示余额 · 仅保存在当前浏览器</p></div></div>
+                <div class="cloud-action"><span class="cloud-action-label">每日签到</span><strong>今日可领 <em>+30</em> 云贝</strong><button type="button" class="primary" id="checkin-button">签到获取云贝</button><small id="cloud-checkin-note">演示奖励，正式签到规则待确认</small></div>
+              </div>
+              <div class="cloud-hero-bottom"><div><span>按当前示例比例</span><strong id="cloud-exchange-count">可兑换 2 次</strong><small>每次获得 500 MB 空间</small></div><div><span>开通会员 / 购买扩容</span><strong>500 云贝抵 ¥5</strong><small>每单最高抵扣 5 元</small></div></div>
+            </div>
+
+            <div class="card cloud-exchange"><div class="section-title"><div><span class="cloud-section-kicker">云贝用途</span><h2>兑换存储空间</h2><p class="card-sub">使用云贝兑换容量，先看兑换后的余额与空间变化。</p></div><span class="cloud-demo-pill">示例比例</span></div>
+              <div class="exchange-product"><div class="exchange-icon" aria-hidden="true">＋</div><div><span>本次可兑换</span><h3>500 MB 存储空间</h3><p>兑换后立即计入空间上限，可多次兑换</p></div><strong>消耗 1,000 云贝</strong></div>
+              <div class="exchange-preview" aria-live="polite"><div><span>当前云贝</span><strong id="cloud-preview-balance">2,860</strong></div><span class="exchange-arrow" aria-hidden="true">→</span><div><span>兑换后云贝</span><strong id="cloud-after-balance">1,860</strong></div><div class="exchange-capacity"><span>空间上限预计</span><strong><span id="cloud-current-space">20 GB</span><i aria-hidden="true">→</i><span id="cloud-after-space">20.5 GB</span></strong></div></div>
+              <div class="exchange-action-bar"><p id="cloud-exchange-hint">余额足够兑换，确认后生成一条云贝使用记录。</p><button type="button" class="primary" id="exchange-button" data-modal="exchange">兑换 500 MB</button></div>
+            </div>
+
+            <div class="card cloud-history"><div class="section-title"><div><span class="cloud-section-kicker">收支明细</span><h2>云贝记录</h2><p class="card-sub">签到获取、兑换空间与订单抵扣都会记录在这里。</p></div></div>
+              <div class="order-filters" id="record-filters" role="group" aria-label="筛选云贝记录"><button type="button" class="active" data-record-filter="全部" aria-pressed="true">全部 <span id="record-count-all">4</span></button><button type="button" data-record-filter="已获取" aria-pressed="false">获取 <span id="record-count-gain">3</span></button><button type="button" data-record-filter="已消耗" aria-pressed="false">使用 <span id="record-count-spend">1</span></button></div>
+              <div class="table-head"><span>变动事项</span><span>时间</span><span>云贝变动</span><span>状态</span></div>
+              <div class="empty" id="order-empty"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="10" y="12" width="40" height="38" rx="8" fill="#eef5fc"/><path d="M19 24h22M19 31h15M19 38h18" stroke="#8baed0" stroke-width="2" stroke-linecap="round"/></svg><h3 id="order-empty-title">暂无云贝记录</h3><p id="order-empty-desc">完成签到或云贝兑换后，将在这里看到记录。</p></div><div id="order-records"></div>
+            </div>
+            <div class="cloud-info"><span aria-hidden="true">ⓘ</span><p>云贝兑换与抵扣为原型演示：1,000 云贝兑换 500 MB；500 云贝抵 5 元，每单最多抵扣 5 元。正式档位、规则与上限待确认。</p><button type="button" data-page="space">查看我的空间 <span aria-hidden="true">→</span></button></div>
           </div></div>
         </section>
 
@@ -511,12 +528,35 @@
       const nowText=()=>new Date().toLocaleString('zh-CN',{hour12:false});
       function loadRecords(){const data=safeRead('csRecords',null);return Array.isArray(data)?data:CLOUD_DEFAULT_RECORDS.slice()}
       function addRecord(record){const records=loadRecords();records.unshift(record);return save('csRecords',records)}
-      function renderCheckin(){const done=safeRead('csCheckin','')===dateKey;$('checkin-button').textContent=done?'今日已签到':'签到获取云贝';$('checkin-button').disabled=done}
-      $('checkin-button').addEventListener('click',()=>{if(safeRead('csCheckin','')===dateKey)return;const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE))+CHECKIN_REWARD;const ok=save('csCheckin',dateKey)&&save('csBalance',balance)&&addRecord({type:'checkin',title:'每日签到 · 获取云贝',time:nowText(),delta:'+'+CHECKIN_REWARD+' 云贝',status:'已获取'});if(!ok){toast('本地存储不可用，无法保存演示状态');return}renderCheckin();renderShell();renderSpaceBuy();renderSubscription();toast('签到演示成功：+'+CHECKIN_REWARD+' 云贝（演示奖励，待业务确认）')});renderCheckin();
-      function renderShell(){const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE));const records=loadRecords();$('shell-balance').textContent=balance.toLocaleString('zh-CN');const button=$('exchange-button');const enough=balance>=EXCHANGE_COST;button.disabled=!enough;button.textContent=enough?'立即兑换':'云贝不足';const list=recordFilter==='全部'?records:records.filter(r=>r.status===recordFilter);$('order-empty').hidden=list.length>0;$('order-empty-title').textContent=records.length?'该状态下暂无记录':'暂无云贝记录';$('order-empty-desc').textContent=records.length?'切换筛选条件查看其他记录。':'完成签到或云贝兑换后，将在这里看到记录。';$('order-records').innerHTML=list.map(r=>'<div class="record-row '+(r.status==='已获取'?'gain':'spend')+'"><span class="record-title">'+r.title+'</span><span>'+r.time+'</span><span>'+r.delta+'</span><span><span class="record-status '+(r.status==='已获取'?'gain':'spend')+'">'+r.status+'</span></span></div>').join('')}
+      function renderCheckin(){const done=safeRead('csCheckin','')===dateKey;$('checkin-button').textContent=done?'今日已签到':'签到获取云贝';$('checkin-button').disabled=done;$('cloud-checkin-note').textContent=done?'今天已领取演示奖励，明天再来':'演示奖励，正式签到规则待确认'}
+      $('checkin-button').addEventListener('click',()=>{if(safeRead('csCheckin','')===dateKey)return;const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE))+CHECKIN_REWARD;const ok=save('csCheckin',dateKey)&&save('csBalance',balance)&&addRecord({type:'checkin',title:'每日签到 · 获取云贝',time:nowText(),delta:'+'+CHECKIN_REWARD+' 云贝',status:'已获取'});if(!ok){toast('本地存储不可用，无法保存演示状态');return}renderCheckin();renderShell();renderMember();renderSpaceBuy();renderSubscription();toast('签到演示成功：+'+CHECKIN_REWARD+' 云贝（演示奖励，待业务确认）')});renderCheckin();
+      const escapeRecord=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      function renderShell(){
+        const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE));
+        const records=loadRecords();
+        const enough=balance>=EXCHANGE_COST;
+        const currentSpace=SPACE_BASE_GB+Number(safeRead('csRedeemedMb',SPACE_REDEEMED_DEFAULT_MB))/1000+Number(safeRead('csPaidGb',0));
+        const fmtSpace=v=>Number(v.toFixed(2)).toLocaleString('zh-CN',{maximumFractionDigits:2})+' GB';
+        $('shell-balance').textContent=balance.toLocaleString('zh-CN');
+        $('cloud-exchange-count').textContent='可兑换 '+Math.floor(balance/EXCHANGE_COST)+' 次';
+        $('cloud-preview-balance').textContent=balance.toLocaleString('zh-CN');
+        $('cloud-after-balance').textContent=enough?(balance-EXCHANGE_COST).toLocaleString('zh-CN'):'—';
+        $('cloud-current-space').textContent=fmtSpace(currentSpace);
+        $('cloud-after-space').textContent=fmtSpace(currentSpace+EXCHANGE_MB/1000);
+        $('cloud-exchange-hint').textContent=enough?'余额足够兑换，确认后生成一条云贝使用记录。':'还差 '+(EXCHANGE_COST-balance).toLocaleString('zh-CN')+' 云贝，可签到后再兑换。';
+        const button=$('exchange-button');button.disabled=!enough;button.textContent=enough?'兑换 500 MB':'云贝不足';
+        $('record-count-all').textContent=records.length;
+        $('record-count-gain').textContent=records.filter(r=>r.status==='已获取').length;
+        $('record-count-spend').textContent=records.filter(r=>r.status==='已消耗').length;
+        const list=recordFilter==='全部'?records:records.filter(r=>r.status===recordFilter);
+        $('order-empty').hidden=list.length>0;
+        $('order-empty-title').textContent=records.length?'该状态下暂无记录':'暂无云贝记录';
+        $('order-empty-desc').textContent=records.length?'切换筛选条件查看其他记录。':'完成签到或云贝兑换后，将在这里看到记录。';
+        $('order-records').innerHTML=list.map(r=>'<div class="record-row '+(r.status==='已获取'?'gain':'spend')+'"><span class="record-title">'+escapeRecord(r.title)+'</span><span class="record-time">'+escapeRecord(r.time)+'</span><strong class="record-delta">'+escapeRecord(r.delta)+'</strong><span class="record-status '+(r.status==='已获取'?'gain':'spend')+'">'+escapeRecord(r.status)+'</span></div>').join('');
+      }
       function renderSpace(){const redeemed=Number(safeRead('csRedeemedMb',SPACE_REDEEMED_DEFAULT_MB));const paidGb=Number(safeRead('csPaidGb',0));const used=12.45,limit=SPACE_BASE_GB+redeemed/1000+paidGb,remaining=limit-used,usage=used/limit*100;const fmt=v=>Number(v.toFixed(2)).toLocaleString('zh-CN',{maximumFractionDigits:2});$('space-limit').textContent=fmt(limit)+' GB';$('space-remaining').textContent=fmt(remaining)+' GB';$('space-percent').textContent=usage.toFixed(2)+'%';$('space-disc').style.background='conic-gradient(#40a9ff 0 '+usage.toFixed(2)+'%, rgba(255,255,255,.18) '+usage.toFixed(2)+'% 100%)';$('space-base-value').textContent=fmt(SPACE_BASE_GB)+' GB';$('space-redeemed-value').textContent=redeemed+' MB';$('space-paid-value').textContent=fmt(paidGb)+' GB';$('space-bar-base').style.width=(SPACE_BASE_GB/limit*100)+'%';$('space-bar-redeemed').style.width=(redeemed/1000/limit*100)+'%';$('space-bar-paid').style.width=(paidGb/limit*100)+'%';$('space-note').textContent='已用 12.45 GB 为演示数据；使用率按已用 ÷ 当前上限计算。'}
-      function doExchange(){const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE));if(balance<EXCHANGE_COST){closeModal();toast('云贝不足，无法兑换');return}const ok=save('csBalance',balance-EXCHANGE_COST)&&save('csRedeemedMb',Number(safeRead('csRedeemedMb',SPACE_REDEEMED_DEFAULT_MB))+EXCHANGE_MB)&&addRecord({type:'exchange',title:'云贝兑换 · '+EXCHANGE_MB+' MB 存储空间',time:nowText(),delta:'−'+EXCHANGE_COST+' 云贝',status:'已消耗'});if(!ok){toast('本地存储不可用，兑换未生效');return}renderShell();renderSpace();renderSpaceBuy();renderSubscription();closeModal();toast('兑换成功：−'+EXCHANGE_COST+' 云贝，存储上限 +'+EXCHANGE_MB+' MB（演示）')}
-      $('record-filters').addEventListener('click',e=>{const btn=e.target.closest('[data-record-filter]');if(!btn)return;recordFilter=btn.dataset.recordFilter;document.querySelectorAll('[data-record-filter]').forEach(b=>b.classList.toggle('active',b===btn));renderShell()});
+      function doExchange(){const balance=Number(safeRead('csBalance',CLOUD_DEFAULT_BALANCE));if(balance<EXCHANGE_COST){closeModal();toast('云贝不足，无法兑换');return}const ok=save('csBalance',balance-EXCHANGE_COST)&&save('csRedeemedMb',Number(safeRead('csRedeemedMb',SPACE_REDEEMED_DEFAULT_MB))+EXCHANGE_MB)&&addRecord({type:'exchange',title:'云贝兑换 · '+EXCHANGE_MB+' MB 存储空间',time:nowText(),delta:'−'+EXCHANGE_COST+' 云贝',status:'已消耗'});if(!ok){toast('本地存储不可用，兑换未生效');return}renderShell();renderSpace();renderMember();renderSpaceBuy();renderSubscription();closeModal();toast('兑换成功：−'+EXCHANGE_COST+' 云贝，存储上限 +'+EXCHANGE_MB+' MB（演示）')}
+      $('record-filters').addEventListener('click',e=>{const btn=e.target.closest('[data-record-filter]');if(!btn)return;recordFilter=btn.dataset.recordFilter;document.querySelectorAll('[data-record-filter]').forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});renderShell()});
       renderShell();renderSpace();
       const MEMBER_PLANS=[{name:'月卡',price:29},{name:'季卡',price:79},{name:'半年卡',price:158},{name:'年卡',price:298}];
       const MEMBER_DESC={'月卡':'月度会员卡','季卡':'季度会员卡','半年卡':'半年会员卡','年卡':'年度会员卡'};
